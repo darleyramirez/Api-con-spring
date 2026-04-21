@@ -8,7 +8,11 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "Reserva")
+
 public class Reserva {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+
     private UUID id;
     private Integer tiempo;
     private LocalDateTime fecha;
@@ -23,8 +27,7 @@ public class Reserva {
         this.fecha = fecha;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    
 
 
     public UUID getId() {

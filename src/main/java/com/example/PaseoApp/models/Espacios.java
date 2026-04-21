@@ -1,19 +1,23 @@
 package com.example.PaseoApp.models;
 
 import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "Espacios")
 
 public class Espacios {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+
     private UUID id;
+
     private String nombre;
     private String foto;
     private Integer aforo;
     private String descripcion;
+    
     public Espacios() {
     }
 
@@ -24,8 +28,7 @@ public class Espacios {
         this.aforo = aforo;
         this.descripcion = descripcion;
     }
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    
 
 
     public UUID getId() {

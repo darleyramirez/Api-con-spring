@@ -1,7 +1,6 @@
 package com.example.PaseoApp.repositorios;
 
 import com.example.PaseoApp.models.Reserva;
-import com.example.PaseoApp.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

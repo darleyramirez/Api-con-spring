@@ -8,10 +8,16 @@ import java.util.UUID;
 @Entity
 @Table (name = "Usuarios")
 public class Usuario {
+    @Id
+    @GeneratedValue (strategy = GenerationType.UUID)
+    
+    private UUID id;
+
     private String nombres;
     private String correo;
     private String contraseña;
     private String rol;
+
     public Usuario() {
     }
 
@@ -23,10 +29,9 @@ public class Usuario {
         this.rol = rol;
     }
 
-    @Id
-    @GeneratedValue (strategy = GenerationType.UUID)
+    
 
-    private UUID id;
+    
 
     public UUID getId() {
         return id;
