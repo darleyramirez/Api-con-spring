@@ -8,3 +8,4 @@ import java.util.UUID;
 @Repository
 public interface ReservaRepositorios extends JpaRepository<Reserva, UUID> {
 }
+ 
