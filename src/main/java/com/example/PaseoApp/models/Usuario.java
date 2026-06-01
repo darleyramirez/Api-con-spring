@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.util.UUID;
 
+import com.example.PaseoApp.Enums.Rol;
+
 
 @Entity
 @Table (name = "Usuarios")
@@ -16,12 +18,12 @@ public class Usuario {
     private String nombres;
     private String correo;
     private String contraseña;
-    private String rol;
+    private Rol rol;
 
     public Usuario() {
     }
 
-    public Usuario(UUID id, String nombres, String correo, String contraseña, String rol) {
+    public Usuario(UUID id, String nombres, String correo, String contraseña, Rol rol) {
         this.id = id;
         this.nombres = nombres;
         this.correo = correo;
@@ -65,11 +67,11 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public String getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 

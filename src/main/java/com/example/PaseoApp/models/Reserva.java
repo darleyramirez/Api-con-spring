@@ -14,14 +14,14 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.UUID)
 
     private UUID id;
-    private Integer tiempo;
+    private FranjaHoraria tiempo;
     private LocalDateTime fecha;
 
 
     public Reserva() {
     }
 
-    public Reserva(UUID id, Integer tiempo, LocalDateTime fecha) {
+    public Reserva(UUID id, FranjaHoraria tiempo, LocalDateTime fecha) {
         this.id = id;
         this.tiempo = tiempo;
         this.fecha = fecha;
@@ -38,11 +38,11 @@ public class Reserva {
         this.id = id;
     }
 
-    public Integer getTiempo() {
+    public FranjaHoraria getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(Integer tiempo) {
+    public void setTiempo(FranjaHoraria tiempo) {
         this.tiempo = tiempo;
     }
 
