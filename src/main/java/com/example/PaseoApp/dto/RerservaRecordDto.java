@@ -1,5 +1,6 @@
 package com.example.PaseoApp.dto;
-import java.util.UUID;
-import com.example.PaseoApp.Enums.Rol;
 
-public record RerservaRecordDto (FranjaHoraria tiempo, LocalDateTime fecha){}
+import java.time.LocalDateTime;
+import com.example.PaseoApp.Enums.FranjaHoraria;
+
+public record RerservaRecordDto(FranjaHoraria tiempo, LocalDateTime fecha) {}

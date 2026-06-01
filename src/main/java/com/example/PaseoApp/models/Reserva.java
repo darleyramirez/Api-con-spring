@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+import com.example.PaseoApp.Enums.FranjaHoraria;
 
 @Entity
 @Table(name = "Reserva")
@@ -26,9 +27,6 @@ public class Reserva {
         this.tiempo = tiempo;
         this.fecha = fecha;
     }
-
-    
-
 
     public UUID getId() {
         return id;

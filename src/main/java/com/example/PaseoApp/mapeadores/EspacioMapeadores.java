@@ -13,7 +13,7 @@ import com.example.PaseoApp.models.Espacios;
 public interface EspacioMapeadores {
     EspacioMapeadores instancia= Mappers.getMapper(EspacioMapeadores.class);
 
-    EspacioMapeadores convertir_modelo_dto(Espacios espacios);
+    EspacioRecordDto convertir_modelo_dto(Espacios espacios);
     
     List<EspacioRecordDto> convertir_lista_de_modelo_lista_dto(List<Espacios>Lista);
     
