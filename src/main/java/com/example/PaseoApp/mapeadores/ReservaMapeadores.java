@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import com.example.PaseoApp.dto.RerservaRecordDto;
 import com.example.PaseoApp.models.Reserva;
 
-@Mapper(componentModel = "Spring")
+@Mapper(componentModel = "spring")
 public interface ReservaMapeadores {
 
     ReservaMapeadores instancia= Mappers.getMapper(ReservaMapeadores.class);

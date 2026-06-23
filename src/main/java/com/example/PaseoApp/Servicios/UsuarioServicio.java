@@ -1,4 +1,4 @@
-﻿package com.example.PaseoApp.Servicios;
+package com.example.PaseoApp.Servicios;
 
 import com.example.PaseoApp.models.Usuario;
 
@@ -16,3 +16,4 @@ public interface UsuarioServicio {
     List<Usuario> buscarUsuariosEnBD();
 
 }
+

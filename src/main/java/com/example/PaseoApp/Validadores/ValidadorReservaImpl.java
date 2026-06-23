@@ -1,4 +1,4 @@
-package com.example.PaseoApp.Validadores;
+package com.example.PaseoApp.validadores;
 
 import com.example.PaseoApp.Enums.FranjaHoraria;
 import com.example.PaseoApp.models.Reserva;

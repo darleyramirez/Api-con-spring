@@ -8,7 +8,7 @@ import org.mapstruct.factory.Mappers;
 import com.example.PaseoApp.dto.UsuarioRecordDto;
 import com.example.PaseoApp.models.Usuario;
 
-@Mapper(componentModel = "Spring")
+@Mapper(componentModel = "spring")
 public interface UsuarioMapeadores {
 
     UsuarioMapeadores Instancia= Mappers.getMapper(UsuarioMapeadores.class);

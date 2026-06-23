@@ -9,7 +9,7 @@ import com.example.PaseoApp.dto.EspacioRecordDto;
 import com.example.PaseoApp.models.Espacios;
 
 
-@Mapper(componentModel = "Spring")
+@Mapper(componentModel = "spring")
 public interface EspacioMapeadores {
     EspacioMapeadores instancia= Mappers.getMapper(EspacioMapeadores.class);
 

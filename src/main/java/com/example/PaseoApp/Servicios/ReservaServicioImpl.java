@@ -2,7 +2,7 @@ package com.example.PaseoApp.Servicios;
 
 import com.example.PaseoApp.models.Reserva;
 import com.example.PaseoApp.repositorios.ReservaRepositorios;
-import com.example.PaseoApp.Validadores.ValidadorReserva;
+import com.example.PaseoApp.validadores.ValidadorReserva;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
