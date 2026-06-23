@@ -2,7 +2,6 @@ package com.example.PaseoApp.controladores;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,36 +20,40 @@ import com.example.PaseoApp.models.Espacios;
 @RequestMapping("/paseoapi/v1/espacios")
 public class EspacioControlador {
     // por cada servicio ofrecido, configuro una funcion controladora
-    @Autowired
-    EspacioServicio servicio;
+    private final EspacioServicio servicio;
 
-    // funcion para coontrolar el guardado
+    public EspacioControlador(EspacioServicio servicio) {
+        this.servicio = servicio;
+    }
+
+    // funcion para controlar el guardado
     @PostMapping
     public ResponseEntity<Espacios> controlarGuardado(@RequestBody Espacios datos){
         return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .body(this.servicio.guardarEspacioEnBD(datos));
-        }
-        // funcion para controlar las modificaciones
-        @PutMapping("/{id}")
-        public ResponseEntity<Espacios>controlarmodificado(@RequestBody Espacios datos, @PathVariable UUID id){
-            return ResponseEntity
-                    .status(HttpStatus.CREATED)
-                    .body(this.servicio.modificarEspacioEnBD(datos,id));
-        }
-        // funcion para controlar el borrado
-        @DeleteMapping("/{id}")
-        public ResponseEntity<?>controlarBorrado(UUID id){
-            return ResponseEntity
+    }
+
+    // funcion para controlar las modificaciones
+    @PutMapping("/{id}")
+    public ResponseEntity<Espacios> controlarModificado(@RequestBody Espacios datos, @PathVariable UUID id){
+        return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(this.servicio.eliminarenBD(id));
-        }
-        // funcion para controlar el listar
-        @GetMapping
-        public ResponseEntity<?>controlarListar(){
-            return ResponseEntity
+                    .body(this.servicio.modificarEspacioEnBD(datos, id));
+    }
+
+    // funcion para controlar el borrado
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> controlarBorrado(@PathVariable UUID id){
+        this.servicio.eliminarEspacioEnBD(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    // funcion para controlar el listar
+    @GetMapping
+    public ResponseEntity<java.util.List<Espacios>> controlarListar(){
+        return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(this.servicio.buscarEspacioEnBD());
-        }
-    
+                    .body(this.servicio.buscarEspaciosEnBD());
+    }
 }

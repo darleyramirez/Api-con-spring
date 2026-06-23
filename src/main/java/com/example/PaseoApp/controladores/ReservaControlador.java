@@ -2,7 +2,6 @@ package com.example.PaseoApp.controladores;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,34 +19,34 @@ import com.example.PaseoApp.models.Reserva;
 @RestController
 @RequestMapping("/paseoapi/v1/reservas")
 public class ReservaControlador {
-    // por cada servicio ofrecido, configuro una funcion controladora
-    @Autowired
-    ReservaServicio servicio;
+    private final ReservaServicio servicio;
 
-    // funcion para coontrolar el guardado
+    public ReservaControlador(ReservaServicio servicio) {
+        this.servicio = servicio;
+    }
+
     @PostMapping
     public ResponseEntity<Reserva> controlarGuardado(@RequestBody Reserva datos){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(this.servicio.guardarReservaEnBD(datos));
     }
-    // funcion para controlar las modificaciones
+
     @PutMapping("/{id}")
-    public ResponseEntity<Reserva>controlarmodificado(@RequestBody Reserva datos, @PathVariable UUID id){
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(this.servicio.modificarReservaEnBD(id, datos));
-    }
-    // funcion para controlar el borrado
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?>controlarBorrado(UUID id){
+    public ResponseEntity<Reserva> controlarModificado(@RequestBody Reserva datos, @PathVariable UUID id){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(this.servicio.eliminarenBD(id));
+                .body(this.servicio.modificarReservaEnBD(id, datos));
     }
-    // funcion para controlar el listar
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> controlarBorrado(@PathVariable UUID id){
+        this.servicio.eliminarReservaEnBD(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping
-    public ResponseEntity<?>controlarListar(){
+    public ResponseEntity<java.util.List<Reserva>> controlarListar(){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(this.servicio.buscarReservaEnBD());
